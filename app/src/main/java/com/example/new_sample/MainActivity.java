@@ -9,25 +9,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    private Button b1;
-    private Button b2;
-    private Button b3;
-    private Button b4;
-    private Button b5;
-    private Button b6;
-    private Button b7;
-    private Button b8;
-    private Button b9;
-    private Button b0;
-    private Button b_equal;
-    private Button b_multi;
-    private Button b_divide;
-    private Button b_add;
-    private Button b_sub;
-    private Button b_clear;
-    private Button b_dot;
-    private Button b_para1;
-    private Button b_para2;
+    // Button Angka
+    private Button b1, b2, b3, b4, b5, b6, b7, b8, b9, b0;
+    // Button Operator
+    private Button b_equal, b_multi, b_divide, b_add, b_sub;
+    // Button Lainnya
+    private Button b_clear, b_dot, b_modulus, b_para2;
+
+    // Text dan Karakter
     private TextView t1;
     private TextView t2;
     private final char ADDITION = '+';
@@ -41,10 +30,37 @@ public class MainActivity extends AppCompatActivity {
     private double val1 = Double.NaN;
     private double val2;
 
+    private void viewSetup() {
+        b1 = findViewById(R.id.button1);
+        b2 = findViewById(R.id.button2);
+        b3 = findViewById(R.id.button3);
+        b4 = findViewById(R.id.button4);
+        b5 = findViewById(R.id.button5);
+        b6 = findViewById(R.id.button6);
+        b7 = findViewById(R.id.button7);
+        b8 = findViewById(R.id.button8);
+        b9 = findViewById(R.id.button9);
+        b0 = findViewById(R.id.button0);
+        
+        b_equal = findViewById(R.id.button_equal);
+        b_multi = findViewById(R.id.button_multi);
+        b_divide = findViewById(R.id.button_divide);
+        b_add = findViewById(R.id.button_add);
+        b_sub = findViewById(R.id.button_sub);
+        b_modulus = findViewById(R.id.button_modulus);
+
+        b_clear = findViewById(R.id.button_clear);
+        b_dot = findViewById(R.id.button_dot);
+        b_para2 = findViewById(R.id.button_para2);
+        t1 = findViewById(R.id.input);
+        t2 = findViewById(R.id.output);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         viewSetup();
 
         b1.setOnClickListener(new View.OnClickListener() {
@@ -145,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        b_para1.setOnClickListener(new View.OnClickListener() {
+        b_modulus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (t1.getText().length() > 0) {
@@ -257,9 +273,9 @@ public class MainActivity extends AppCompatActivity {
                     operation();
                     ACTION = EQU;
                     if (!ifReallyDecimal()) {
-                        t2.setText(/*t2.getText().toString() + String.valueOf(val2) + "=" + */String.valueOf(val1));
+                        t2.setText(String.valueOf(val1));
                     } else {
-                        t2.setText(/*t2.getText().toString() + String.valueOf(val2) + "=" + */String.valueOf((int) val1));
+                        t2.setText(String.valueOf((int) val1));
                     }
                     t1.setText(null);
                 } else {
@@ -294,30 +310,6 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
-    }
-
-    private void viewSetup() {
-        b1 = findViewById(R.id.button1);
-        b2 = findViewById(R.id.button2);
-        b3 = findViewById(R.id.button3);
-        b4 = findViewById(R.id.button4);
-        b5 = findViewById(R.id.button5);
-        b6 = findViewById(R.id.button6);
-        b7 = findViewById(R.id.button7);
-        b8 = findViewById(R.id.button8);
-        b9 = findViewById(R.id.button9);
-        b0 = findViewById(R.id.button0);
-        b_equal = findViewById(R.id.button_equal);
-        b_multi = findViewById(R.id.button_multi);
-        b_divide = findViewById(R.id.button_divide);
-        b_add = findViewById(R.id.button_add);
-        b_sub = findViewById(R.id.button_sub);
-        b_clear = findViewById(R.id.button_clear);
-        b_dot = findViewById(R.id.button_dot);
-        b_para1 = findViewById(R.id.button_para1);
-        b_para2 = findViewById(R.id.button_para2);
-        t1 = findViewById(R.id.input);
-        t2 = findViewById(R.id.output);
     }
 
     private void operation() {
