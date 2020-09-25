@@ -11,7 +11,6 @@ import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.longClick;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
-import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 
@@ -24,86 +23,93 @@ public class MainActivityInstrumentTest {
 
     @Test
     public void click_number_btn() {
-        onView(withId(R.id.button1)).perform(click());
-        onView(withId(R.id.button2)).perform(click());
-        onView(withId(R.id.button3)).perform(click());
-        onView(withId(R.id.button4)).perform(click());
-        onView(withId(R.id.button5)).perform(click());
-        onView(withId(R.id.button6)).perform(click());
-        onView(withId(R.id.button7)).perform(click());
-        onView(withId(R.id.button8)).perform(click());
-        onView(withId(R.id.button9)).perform(click());
-        onView(withId(R.id.button0)).perform(click());
+        onView(withId(R.id.btn1)).perform(click());
+        onView(withId(R.id.btn2)).perform(click());
+        onView(withId(R.id.btn3)).perform(click());
+        onView(withId(R.id.btn4)).perform(click());
+        onView(withId(R.id.btn5)).perform(click());
+        onView(withId(R.id.btn6)).perform(click());
+        onView(withId(R.id.btn7)).perform(click());
+        onView(withId(R.id.btn8)).perform(click());
+        onView(withId(R.id.btn9)).perform(click());
+        onView(withId(R.id.btn0)).perform(click());
         onView(withId(R.id.input)).check(matches(withText("1234567890")));
     }
 
     @Test
     public void force_operational_btn(){
-        onView(withId(R.id.button_add)).perform(click());
+        onView(withId(R.id.btn_add)).perform(click());
         onView(withId(R.id.output)).check(matches(withText("Error")));
         onView(withId(R.id.button_clear)).perform(longClick());
 
-        onView(withId(R.id.button_sub)).perform(click());
+        onView(withId(R.id.btn_sub)).perform(click());
         onView(withId(R.id.output)).check(matches(withText("Error")));
         onView(withId(R.id.button_clear)).perform(longClick());
 
-        onView(withId(R.id.button_divide)).perform(click());
+        onView(withId(R.id.btn_divide)).perform(click());
         onView(withId(R.id.output)).check(matches(withText("Error")));
         onView(withId(R.id.button_clear)).perform(longClick());
 
-        onView(withId(R.id.button_multi)).perform(click());
+        onView(withId(R.id.btn_multi)).perform(click());
         onView(withId(R.id.output)).check(matches(withText("Error")));
         onView(withId(R.id.button_clear)).perform(longClick());
 
-        onView(withId(R.id.button_equal)).perform(click());
+        onView(withId(R.id.btn_equal)).perform(click());
         onView(withId(R.id.output)).check(matches(withText("Error")));
         onView(withId(R.id.button_clear)).perform(longClick());
     }
 
     @Test
     public void tambah_simple(){
-        onView(withId(R.id.button1)).perform(click());
-        onView(withId(R.id.button_add)).perform(click());
-        onView(withId(R.id.button1)).perform(click());
-        onView(withId(R.id.button_equal)).perform(click());
+        onView(withId(R.id.btn1)).perform(click());
+        onView(withId(R.id.btn_add)).perform(click());
+        onView(withId(R.id.btn1)).perform(click());
+        onView(withId(R.id.btn_equal)).perform(click());
         onView(withId(R.id.output)).check(matches(withText("2")));
     }
 
     @Test
     public void kurang_simple(){
-        onView(withId(R.id.button1)).perform(click());
-        onView(withId(R.id.button_sub)).perform(click());
-        onView(withId(R.id.button1)).perform(click());
-        onView(withId(R.id.button_equal)).perform(click());
+        onView(withId(R.id.btn1)).perform(click());
+        onView(withId(R.id.btn_sub)).perform(click());
+        onView(withId(R.id.btn1)).perform(click());
+        onView(withId(R.id.btn_equal)).perform(click());
         onView(withId(R.id.output)).check(matches(withText("0")));
     }
 
     @Test
     public void kali_simple(){
-        onView(withId(R.id.button5)).perform(click());
-        onView(withId(R.id.button_add)).perform(click());
-        onView(withId(R.id.button5)).perform(click());
-        onView(withId(R.id.button_equal)).perform(click());
+        onView(withId(R.id.btn5)).perform(click());
+        onView(withId(R.id.btn_multi)).perform(click());
+        onView(withId(R.id.btn5)).perform(click());
+        onView(withId(R.id.btn_equal)).perform(click());
         onView(withId(R.id.output)).check(matches(withText("25")));
     }
 
     @Test
     public void bagi_simple(){
-        onView(withId(R.id.button5)).perform(click());
-        onView(withId(R.id.button_add)).perform(click());
-        onView(withId(R.id.button5)).perform(click());
-        onView(withId(R.id.button_equal)).perform(click());
-        onView(withId(R.id.output)).check(matches(withText("5")));
+        onView(withId(R.id.btn5)).perform(click());
+        onView(withId(R.id.btn_divide)).perform(click());
+        onView(withId(R.id.btn5)).perform(click());
+        onView(withId(R.id.btn_equal)).perform(click());
+        onView(withId(R.id.output)).check(matches(withText("1")));
     }
 
     @Test
     public void modulus_simple(){
-        onView(withId(R.id.button5)).perform(click());
-        onView(withId(R.id.butt)).perform(click());
-        onView(withId(R.id.button5)).perform(click());
-        onView(withId(R.id.button_equal)).perform(click());
-        onView(withId(R.id.output)).check(matches(withText("5")));
+        onView(withId(R.id.btn5)).perform(click());
+        onView(withId(R.id.btn_mod)).perform(click());
+        onView(withId(R.id.btn5)).perform(click());
+        onView(withId(R.id.btn_equal)).perform(click());
+        onView(withId(R.id.output)).check(matches(withText("0")));
     }
 
-
+    @Test
+    public void convert_plus_minus(){
+        onView(withId(R.id.btn5)).perform(click());
+        onView(withId(R.id.button_pl_minus)).perform(click());
+        onView(withId(R.id.output)).check(matches(withText("-5")));
+        onView(withId(R.id.button_pl_minus)).perform(click());
+        onView(withId(R.id.output)).check(matches(withText("5")));
+    }
 }

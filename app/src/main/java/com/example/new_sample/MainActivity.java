@@ -2,11 +2,13 @@ package com.example.new_sample;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     // Button Angka
@@ -14,46 +16,47 @@ public class MainActivity extends AppCompatActivity {
     // Button Operator
     private Button b_equal, b_multi, b_divide, b_add, b_sub;
     // Button Lainnya
-    private Button b_clear, b_dot, b_modulus, b_para2;
+    private Button b_clear, b_dot, b_mod, b_pl_minus;
 
     // Text dan Karakter
-    private TextView t1;
-    private TextView t2;
+    private TextView txtInput;
+    private TextView txtOutput;
     private final char ADDITION = '+';
     private final char SUBTRACTION = '-';
     private final char MULTIPLICATION = '*';
     private final char DIVISION = '/';
-    private final char EQU = '=';
+    private final char EQUAL = '=';
     private final char EXTRA = '@';
     private final char MODULUS = '%';
     private char ACTION;
-    private double val1 = Double.NaN;
-    private double val2;
+    private double valueInput = Double.NaN;
+    private double valueOutput;
 
     private void viewSetup() {
-        b1 = findViewById(R.id.button1);
-        b2 = findViewById(R.id.button2);
-        b3 = findViewById(R.id.button3);
-        b4 = findViewById(R.id.button4);
-        b5 = findViewById(R.id.button5);
-        b6 = findViewById(R.id.button6);
-        b7 = findViewById(R.id.button7);
-        b8 = findViewById(R.id.button8);
-        b9 = findViewById(R.id.button9);
-        b0 = findViewById(R.id.button0);
-        
-        b_equal = findViewById(R.id.button_equal);
-        b_multi = findViewById(R.id.button_multi);
-        b_divide = findViewById(R.id.button_divide);
-        b_add = findViewById(R.id.button_add);
-        b_sub = findViewById(R.id.button_sub);
-        b_modulus = findViewById(R.id.button_modulus);
+        b1 = findViewById(R.id.btn1);
+        b2 = findViewById(R.id.btn2);
+        b3 = findViewById(R.id.btn3);
+        b4 = findViewById(R.id.btn4);
+        b5 = findViewById(R.id.btn5);
+        b6 = findViewById(R.id.btn6);
+        b7 = findViewById(R.id.btn7);
+        b8 = findViewById(R.id.btn8);
+        b9 = findViewById(R.id.btn9);
+        b0 = findViewById(R.id.btn0);
+
+        b_add = findViewById(R.id.btn_add);
+        b_sub = findViewById(R.id.btn_sub);
+        b_multi = findViewById(R.id.btn_multi);
+        b_divide = findViewById(R.id.btn_divide);
+        b_mod = findViewById(R.id.btn_mod);
+        b_equal = findViewById(R.id.btn_equal);
 
         b_clear = findViewById(R.id.button_clear);
         b_dot = findViewById(R.id.button_dot);
-        b_para2 = findViewById(R.id.button_para2);
-        t1 = findViewById(R.id.input);
-        t2 = findViewById(R.id.output);
+        b_pl_minus = findViewById(R.id.button_pl_minus);
+
+        txtInput = findViewById(R.id.input);
+        txtOutput = findViewById(R.id.output);
     }
 
     @Override
@@ -68,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ifErrorOnOutput();
                 exceedLength();
-                t1.setText(t1.getText().toString() + "1");
+                txtInput.setText(txtInput.getText().toString() + "1");
             }
         });
 
@@ -77,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ifErrorOnOutput();
                 exceedLength();
-                t1.setText(t1.getText().toString() + "2");
+                txtInput.setText(txtInput.getText().toString() + "2");
             }
         });
 
@@ -86,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ifErrorOnOutput();
                 exceedLength();
-                t1.setText(t1.getText().toString() + "3");
+                txtInput.setText(txtInput.getText().toString() + "3");
             }
         });
 
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ifErrorOnOutput();
                 exceedLength();
-                t1.setText(t1.getText().toString() + "4");
+                txtInput.setText(txtInput.getText().toString() + "4");
             }
         });
 
@@ -104,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ifErrorOnOutput();
                 exceedLength();
-                t1.setText(t1.getText().toString() + "5");
+                txtInput.setText(txtInput.getText().toString() + "5");
             }
         });
 
@@ -113,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ifErrorOnOutput();
                 exceedLength();
-                t1.setText(t1.getText().toString() + "6");
+                txtInput.setText(txtInput.getText().toString() + "6");
             }
         });
 
@@ -122,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ifErrorOnOutput();
                 exceedLength();
-                t1.setText(t1.getText().toString() + "7");
+                txtInput.setText(txtInput.getText().toString() + "7");
             }
         });
 
@@ -131,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ifErrorOnOutput();
                 exceedLength();
-                t1.setText(t1.getText().toString() + "8");
+                txtInput.setText(txtInput.getText().toString() + "8");
             }
         });
 
@@ -140,7 +143,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ifErrorOnOutput();
                 exceedLength();
-                t1.setText(t1.getText().toString() + "9");
+                txtInput.setText(txtInput.getText().toString() + "9");
             }
         });
 
@@ -149,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 ifErrorOnOutput();
                 exceedLength();
-                t1.setText(t1.getText().toString() + "0");
+                txtInput.setText(txtInput.getText().toString() + "0");
             }
         });
 
@@ -157,24 +160,24 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 exceedLength();
-                t1.setText(t1.getText().toString() + ".");
+                txtInput.setText(txtInput.getText().toString() + ".");
             }
         });
 
-        b_modulus.setOnClickListener(new View.OnClickListener() {
+        b_mod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (t1.getText().length() > 0) {
+                if (txtInput.getText().length() > 0) {
                     ACTION = MODULUS;
                     operation();
                     if (!ifReallyDecimal()) {
-                        t2.setText(val1 + "%");
+                        txtOutput.setText(valueInput + "%");
                     } else {
-                        t2.setText((int) val1 + "%");
+                        txtOutput.setText((int) valueInput + "%");
                     }
-                    t1.setText(null);
+                    txtInput.setText(null);
                 } else {
-                    t2.setText("Error");
+                    txtOutput.setText("Error");
                 }
             }
         });
@@ -182,17 +185,17 @@ public class MainActivity extends AppCompatActivity {
         b_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (t1.getText().length() > 0) {
+                if (txtInput.getText().length() > 0) {
                     ACTION = ADDITION;
                     operation();
                     if (!ifReallyDecimal()) {
-                        t2.setText(val1 + "+");
+                        txtOutput.setText(valueInput + "+");
                     } else {
-                        t2.setText((int) val1 + "+");
+                        txtOutput.setText((int) valueInput + "+");
                     }
-                    t1.setText(null);
+                    txtInput.setText(null);
                 } else {
-                    t2.setText("Error");
+                    txtOutput.setText("Error");
                 }
             }
         });
@@ -200,18 +203,18 @@ public class MainActivity extends AppCompatActivity {
         b_sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (t1.getText().length() > 0) {
+                if (txtInput.getText().length() > 0) {
                     ACTION = SUBTRACTION;
                     operation();
-                    if (t1.getText().length() > 0)
+                    if (txtInput.getText().length() > 0)
                         if (!ifReallyDecimal()) {
-                            t2.setText(val1 + "-");
+                            txtOutput.setText(valueInput + "-");
                         } else {
-                            t2.setText((int) val1 + "-");
+                            txtOutput.setText((int) valueInput + "-");
                         }
-                    t1.setText(null);
+                    txtInput.setText(null);
                 } else {
-                    t2.setText("Error");
+                    txtOutput.setText("Error");
                 }
             }
         });
@@ -219,17 +222,17 @@ public class MainActivity extends AppCompatActivity {
         b_multi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (t1.getText().length() > 0) {
+                if (txtInput.getText().length() > 0) {
                     ACTION = MULTIPLICATION;
                     operation();
                     if (!ifReallyDecimal()) {
-                        t2.setText(val1 + "×");
+                        txtOutput.setText(valueInput + "×");
                     } else {
-                        t2.setText((int) val1 + "×");
+                        txtOutput.setText((int) valueInput + "×");
                     }
-                    t1.setText(null);
+                    txtInput.setText(null);
                 } else {
-                    t2.setText("Error");
+                    txtOutput.setText("Error");
                 }
             }
         });
@@ -237,31 +240,37 @@ public class MainActivity extends AppCompatActivity {
         b_divide.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (t1.getText().length() > 0) {
+                if (txtInput.getText().length() > 0) {
                     ACTION = DIVISION;
                     operation();
                     if (ifReallyDecimal()) {
-                        t2.setText((int) val1 + "/");
+                        txtOutput.setText((int) valueInput + "/");
                     } else {
-                        t2.setText(val1 + "/");
+                        txtOutput.setText(valueInput + "/");
                     }
-                    t1.setText(null);
+                    txtInput.setText(null);
                 } else {
-                    t2.setText("Error");
+                    txtOutput.setText("Error");
                 }
             }
         });
 
-        b_para2.setOnClickListener(new View.OnClickListener() {
+        // Convert Positive Number to Negative, and Negative to Positive
+        b_pl_minus.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
-                if (!t2.getText().toString().isEmpty() || !t1.getText().toString().isEmpty()) {
-                    val1 = Double.parseDouble(t1.getText().toString());
+                if (!txtInput.getText().toString().isEmpty()) {
+                    valueInput = Double.parseDouble(txtInput.getText().toString());
                     ACTION = EXTRA;
-                    t2.setText("-" + t1.getText().toString());
-                    t1.setText("");
+                    txtOutput.setText("-" + txtInput.getText().toString());
+                    txtInput.setText("");
+                } else if (!txtOutput.getText().toString().contains("-")) {
+                    txtOutput.setText("-" + txtOutput.getText().toString());
+                } else if (txtOutput.getText().toString().contains("-")){
+                    txtOutput.setText(txtOutput.getText().toString().replace("-", ""));
                 } else {
-                    t2.setText("Error");
+                    Toast.makeText(getApplicationContext(), "Belum ada Angka", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -269,17 +278,17 @@ public class MainActivity extends AppCompatActivity {
         b_equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (t1.getText().length() > 0) {
+                if (txtInput.getText().length() > 0) {
                     operation();
-                    ACTION = EQU;
+                    ACTION = EQUAL;
                     if (!ifReallyDecimal()) {
-                        t2.setText(String.valueOf(val1));
+                        txtOutput.setText(String.valueOf(valueInput));
                     } else {
-                        t2.setText(String.valueOf((int) val1));
+                        txtOutput.setText(String.valueOf((int) valueInput));
                     }
-                    t1.setText(null);
+                    txtInput.setText(null);
                 } else {
-                    t2.setText("Error");
+                    txtOutput.setText("Error");
                 }
             }
         });
@@ -287,14 +296,14 @@ public class MainActivity extends AppCompatActivity {
         b_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (t1.getText().length() > 0) {
-                    CharSequence name = t1.getText().toString();
-                    t1.setText(name.subSequence(0, name.length() - 1));
+                if (txtInput.getText().length() > 0) {
+                    CharSequence name = txtInput.getText().toString();
+                    txtInput.setText(name.subSequence(0, name.length() - 1));
                 } else {
-                    val1 = Double.NaN;
-                    val2 = Double.NaN;
-                    t1.setText("");
-                    t2.setText("");
+                    valueInput = Double.NaN;
+                    valueOutput = Double.NaN;
+                    txtInput.setText("");
+                    txtOutput.setText("");
                 }
             }
         });
@@ -303,96 +312,96 @@ public class MainActivity extends AppCompatActivity {
         b_clear.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                val1 = Double.NaN;
-                val2 = Double.NaN;
-                t1.setText("");
-                t2.setText("");
+                valueInput = Double.NaN;
+                valueOutput = Double.NaN;
+                txtInput.setText("");
+                txtOutput.setText("");
                 return true;
             }
         });
     }
 
     private void operation() {
-        if (!Double.isNaN(val1)) {
-            if (t2.getText().toString().charAt(0) == '-') {
-                val1 = (-1) * val1;
+        if (!Double.isNaN(valueInput)) {
+            if (txtOutput.getText().toString().charAt(0) == '-') {
+                valueInput = (-1) * valueInput;
             }
-            val2 = Double.parseDouble(t1.getText().toString());
+            valueOutput = Double.parseDouble(txtInput.getText().toString());
 
             switch (ACTION) {
                 case ADDITION:
-                    val1 = val1 + val2;
+                    valueInput += valueOutput;
                     break;
                 case SUBTRACTION:
-                    val1 = val1 - val2;
+                    valueInput -= valueOutput;
                     break;
                 case MULTIPLICATION:
-                    val1 = val1 * val2;
+                    valueInput *= valueOutput;
                     break;
                 case DIVISION:
-                    val1 = val1 / val2;
+                    valueInput /= valueOutput;
                     break;
                 case EXTRA:
-                    val1 = (-1) * val1;
+                    valueInput = (-1) * valueInput;
                     break;
                 case MODULUS:
-                    val1 = val1 % val2;
+                    valueInput = valueInput % valueOutput;
                     break;
-                case EQU:
+                case EQUAL:
                     break;
             }
         } else {
-            val1 = Double.parseDouble(t1.getText().toString());
+            valueInput = Double.parseDouble(txtInput.getText().toString());
         }
     }
 
     // Remove error message that is already written there.
     private void ifErrorOnOutput() {
-        if (t2.getText().toString().equals("Error")) {
-            t2.setText("");
+        if (txtOutput.getText().toString().equals("Error")) {
+            txtOutput.setText("");
         }
     }
 
     // Whether value if a double or not
     private boolean ifReallyDecimal() {
-        return val1 == (int) val1;
+        return valueInput == (int) valueInput;
     }
 
     private void noOperation() {
-        String inputExpression = t2.getText().toString();
+        String inputExpression = txtOutput.getText().toString();
         if (!inputExpression.isEmpty() && !inputExpression.equals("Error")) {
             if (inputExpression.contains("-")) {
                 inputExpression = inputExpression.replace("-", "");
-                t2.setText("");
-                val1 = Double.parseDouble(inputExpression);
+                txtOutput.setText("");
+                valueInput = Double.parseDouble(inputExpression);
             }
             if (inputExpression.contains("+")) {
                 inputExpression = inputExpression.replace("+", "");
-                t2.setText("");
-                val1 = Double.parseDouble(inputExpression);
+                txtOutput.setText("");
+                valueInput = Double.parseDouble(inputExpression);
             }
             if (inputExpression.contains("/")) {
                 inputExpression = inputExpression.replace("/", "");
-                t2.setText("");
-                val1 = Double.parseDouble(inputExpression);
+                txtOutput.setText("");
+                valueInput = Double.parseDouble(inputExpression);
             }
             if (inputExpression.contains("%")) {
                 inputExpression = inputExpression.replace("%", "");
-                t2.setText("");
-                val1 = Double.parseDouble(inputExpression);
+                txtOutput.setText("");
+                valueInput = Double.parseDouble(inputExpression);
             }
             if (inputExpression.contains("×")) {
                 inputExpression = inputExpression.replace("×", "");
-                t2.setText("");
-                val1 = Double.parseDouble(inputExpression);
+                txtOutput.setText("");
+                valueInput = Double.parseDouble(inputExpression);
             }
         }
     }
 
     // Make text small if too many digits.
     private void exceedLength() {
-        if (t1.getText().toString().length() > 10) {
-            t1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        if (txtInput.getText().toString().length() > 10) {
+            txtInput.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
         }
     }
 }

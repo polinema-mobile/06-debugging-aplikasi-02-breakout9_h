@@ -1,0 +1,13 @@
++/- 2x tanpa ada nilai FC
+. bisa lebih dari 1x ???
+. dengan operator FC
+. dengan angka, tidak menjadi 0. melainkan .angka ???
+min angka operator FC
+min . angka ???
+error + penghitungan baru
+
+
+TEST CASE [DONE]
+btn_angka (10)
+clear,operator (7)
+angka & operator (4)

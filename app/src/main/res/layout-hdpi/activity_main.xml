@@ -9,7 +9,7 @@
 
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btn1"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/circle_button"
@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.817" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btn2"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/circle_button"
@@ -39,7 +39,7 @@
         app:layout_constraintVertical_bias="0.817" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btn3"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/circle_button"
@@ -54,7 +54,7 @@
         app:layout_constraintVertical_bias="0.817" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/btn4"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/circle_button"
@@ -69,7 +69,7 @@
         app:layout_constraintVertical_bias="0.677" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/btn5"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/circle_button"
@@ -84,7 +84,7 @@
         app:layout_constraintVertical_bias="0.677" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/btn6"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/circle_button"
@@ -99,7 +99,7 @@
         app:layout_constraintVertical_bias="0.677" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/btn7"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/circle_button"
@@ -114,7 +114,7 @@
         app:layout_constraintVertical_bias="0.541" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/btn8"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/circle_button"
@@ -129,7 +129,7 @@
         app:layout_constraintVertical_bias="0.541" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/btn9"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/circle_button"
@@ -144,7 +144,7 @@
         app:layout_constraintVertical_bias="0.541" />
 
     <Button
-        android:id="@+id/button0"
+        android:id="@+id/btn0"
         android:layout_width="205dp"
         android:layout_height="80dp"
         android:background="@drawable/new_but"
@@ -160,7 +160,7 @@
         app:layout_constraintVertical_bias="0.957" />
 
     <Button
-        android:id="@+id/button_equal"
+        android:id="@+id/btn_equal"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/arithmatic_button"
@@ -175,7 +175,7 @@
         app:layout_constraintVertical_bias="0.958" />
 
     <Button
-        android:id="@+id/button_multi"
+        android:id="@+id/btn_multi"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/arithmatic_button"
@@ -190,7 +190,7 @@
         app:layout_constraintVertical_bias="0.541" />
 
     <Button
-        android:id="@+id/button_divide"
+        android:id="@+id/btn_divide"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/arithmatic_button"
@@ -205,7 +205,7 @@
         app:layout_constraintVertical_bias="0.406" />
 
     <Button
-        android:id="@+id/button_add"
+        android:id="@+id/btn_add"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/arithmatic_button"
@@ -220,7 +220,7 @@
         app:layout_constraintVertical_bias="0.817" />
 
     <Button
-        android:id="@+id/button_sub"
+        android:id="@+id/btn_sub"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/arithmatic_button"
@@ -250,7 +250,7 @@
         app:layout_constraintVertical_bias="0.406" />
 
     <Button
-        android:id="@+id/button_modulus"
+        android:id="@+id/btn_mod"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/button"
@@ -265,7 +265,7 @@
         app:layout_constraintVertical_bias="0.406" />
 
     <Button
-        android:id="@+id/button_para2"
+        android:id="@+id/button_pl_minus"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/button"
